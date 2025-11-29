@@ -13,7 +13,7 @@ Este proyecto es una tarea formativa de aprendizaje y esta enfocado en la herenc
 ┃ ┣ 📜 PlantasYCentrosCultivo.txt
 ┣ 📂 src
 ┃ ┣ 📂 data/		#Servicios y Lógica general de la gestión de Unidades Operativas.
-┃ ┣ 📂 model/		##Clases que representan los datos y entidades (CentroCultivo, PlantaProceso, UnidadOperativa).
+┃ ┣ 📂 model/		#Clases que representan los datos y entidades (CentroCultivo, PlantaProceso, UnidadOperativa).
 ┃ ┣ 📂 ui/			#Punto de entrada, interfaz y Ejecución principal (Main.java).
 ┗ 📜 README.md
 
@@ -49,7 +49,7 @@ git clone https://github.com/matisuarezm/SalmonttApp_S6.git
 - Abre la clase `Main.java` del paquete `ui`
 - Puedes ejecutar el proyecto.
 
-	> Nota: La clase Main.java ya trae algunos ejemplos que se mostraran por consola.
+	> Nota: La clase Main.java trae un menu para probar las funcionalidades.
 
 ---
 
