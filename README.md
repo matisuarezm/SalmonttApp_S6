@@ -1,23 +1,38 @@
 # 📘 Proyecto: Herencia Simple en SalmonttApp
 
 ## 📝 Descripción general del sistema
-Este proyecto es una tarea formativa de aprendizaje y esta enfocado en la herencia simple, con una clase padre llamada UnidadesOperativa y de la cual se deben crear dos sub-clases llamadas CentroCultivo y PlantaProceso las que deben heredad los atributos y metodos de la clase Padre.
+Este proyecto es una tarea formativa de aprendizaje y está enfocado en la herencia simple, con una clase padre llamada UnidadesOperativa y de la cual se deben crear dos sub-clases llamadas CentroCultivo y PlantaProceso las que deben heredad los atributos y sobre-escribir metodos de la clase Padre.
 
 ---
 ## 🧱 Estructura general del proyecto
 
 ```
-📦 SalmonttApp_S6/
+📦 SalmonttApp_S5/
 ┣ 📂 .idea/
-┃ 📂 resources/
-┃ ┣ 📜 PlantasYCentrosCultivo.txt
-┣ 📂 src
-┃ ┣ 📂 data/		#Servicios y Lógica general de la gestión de Unidades Operativas.
-┃ ┣ 📂 model/		#Clases que representan los datos y entidades (CentroCultivo, PlantaProceso, UnidadOperativa).
-┃ ┣ 📂 ui/			#Punto de entrada, interfaz y Ejecución principal (Main.java).
-┗ 📜 README.md
+┣ 📂 src/main
+┃ ┣ 📂 java/cl/salmontt
+┃ ┃ ┣ 📂 data/		    #Servicios y Lógica general de la gestión de empleados y unidades operativas
+┃ ┃ ┣ 📂 model/			#Clases que representan los datos y entidades (Empleado, Persona, Dirección, PlantaProceso, CentroCultivo)
+┃ ┃ ┣ 📂 ui/			#Punto de entrada, interfaz y Ejecución principal (Main.java)
+┃ ┃ ┣ 📂 util/			#utilitarios, validaciones y excepciones personalizadas
+┃ ┣ 📂 resources/
+┃ ┃ ┣ 📊 Empleados.xlsx		#Archivo Excel con los datos de empleados
+┃ ┃ ┣ 📊 PlantasYCentrosCultivos.txt	#Archivo Excel con los datos de empleados
+┣ 📂 target/
+┃ ┃ ┣ 📦 SalmontApp-S6-1.0-SNAPSHOT.jar	    # Archivo ejecutable generado por Maven
+┃ 📜 README.md
+┗ 📜 pom.xml			#Configuración Maven y dependencias
 
 ```
+### Nuevas clases incorporadas en la actividad
+
+- `UnidadesOperativas.java`
+- `PlantaProceso.java`
+- `CentroCultivo.java`
+- `GestorUnidades.java`
+
+Todas estas clases respresentan la actividad de la semana 6, aplicando conceptos como atributos heredados, sobreescritura de métodos y composición entre clases.
+
 ---
 ## 🧩 Requisitos
 
@@ -49,7 +64,7 @@ git clone https://github.com/matisuarezm/SalmonttApp_S6.git
 - Abre la clase `Main.java` del paquete `ui`
 - Puedes ejecutar el proyecto.
 
-	> Nota: La clase Main.java trae un menu para probar las funcionalidades.
+	> Nota: La clase Main.java trae un Menú el cual fue modificado para probar las funcionalidades de esta semana.
 
 ---
 
