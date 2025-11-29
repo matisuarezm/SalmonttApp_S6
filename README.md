@@ -7,7 +7,7 @@ Este proyecto es una tarea formativa de aprendizaje y está enfocado en la heren
 ## 🧱 Estructura general del proyecto
 
 ```
-📦 SalmonttApp_S5/
+📦 SalmonttApp_S6/
 ┣ 📂 .idea/
 ┣ 📂 src/main
 ┃ ┣ 📂 java/cl/salmontt
