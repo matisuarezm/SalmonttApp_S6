@@ -46,31 +46,35 @@ public class GestorUnidades {
 
             //Si archivo TXT no se encuentra arrojamos mensaje
             if (lecturaArchivo == null){
-                System.out.println("No se encontró el archivo " + nombreArchivo);
+                System.err.println("No se encontró el archivo " + nombreArchivo);
                 return registroUnidades;
             }
 
             //Abrimos el archivo con BufferReader
             //InputStreamReader -> convierte los bytes del InputStream en caracteres usando una codificación (UTF-8, etc.).
-            //BufferedReader -> te da métodos como readLine() para leer línea a línea.
+            //BufferedReader -> te da métodos como readLine() para leer cada línea.
             try (BufferedReader br = new BufferedReader(new InputStreamReader(lecturaArchivo))){
 
+                //Variable para almacenar cada línea que se lee del archivo
                 String lineaArchivo;
+                //contador de las líneas leídas (en caso de error podemos arrojar un mensaje más exacto)
                 int numeroLinea = 0;
 
+                //leemos el archivo línea a línea hasta que readLine() devuelve null
                 while ((lineaArchivo = br.readLine()) != null){
                     numeroLinea++;
 
+                    //si la línea está vacía o solo tiene espacios se salta a la siguiente
                     if (lineaArchivo.trim().isEmpty()){
                         continue;
                     }
 
-                    //La fila leida con BufferReader la separamos por ; y la guardamos en un arreglo
+                    //Separamos la línea usando ';' y cada parte la guardamos en un arreglo
                     String [] fila = lineaArchivo.split(";");
 
-                    //Verificamos que el largo del arreglo contenga la cantidad de información requerida
+                    //Verificamos que el arreglo tenga 5 elementos (formato requerido)
                     if (fila.length != 5){
-                        System.out.println("La Linea " + numeroLinea + " no tiene el formato esperado o es invalida");
+                        System.err.println("La Linea " + numeroLinea + " no tiene el formato esperado o es invalida");
                         continue;
                     }
 
@@ -81,26 +85,28 @@ public class GestorUnidades {
                     String comuna = fila[3].trim();
                     String cantidadStr = fila[4].trim();
 
-                    //Depende del tipo: Planta o Centro, creamos el objeto correspondiente
+                    //Convertimos la cantidad a número y depende del tipo, creamos el objeto correspondiente
                     try {
                         double cantidad = Double.parseDouble(cantidadStr);
+
                         if (tipo.equalsIgnoreCase("centro")){
                             registroUnidades.add(new CentroCultivo(id,tipo,nombre,comuna,cantidad));
 
                         }else if (tipo.equalsIgnoreCase("planta")){
                             registroUnidades.add(new PlantaProceso(id,tipo,nombre,comuna,cantidad));
                         }else {
-                            System.out.println("Tipo desconocido en la linea " + numeroLinea + ": " + tipo);
+                            System.err.println("Tipo desconocido en la linea " + numeroLinea + ": " + tipo);
                         }
 
                     }catch (NumberFormatException exception){
-                        //Mensaje en caso de error al convertir el dato de las toneladas
-                        System.out.println("La cantidad de la linea " + lineaArchivo + " no corresponden a un número");
+                        //Mensaje en caso de que la cantidad no se pueda convertir en numero
+                        System.err.println("La cantidad de la linea " + lineaArchivo + " no corresponden a un número");
                     }
                 }
             }
         }catch (Exception ex){
-            System.out.println("Ocurrio un error en la lectura del archivo");
+            //Capturamos cualquier error general en la lectura del archivo
+            System.err.println("Ocurrió un error en la lectura del archivo");
         }
         return registroUnidades;
     }
